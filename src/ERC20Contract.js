@@ -12,7 +12,36 @@ class ERC20Contract {
 	 */
 	constructor(web3, contractAddr) {
 		this._web3 = web3;
-		this._contractInst = new this._web3.eth.Contract(ERC20Abi, contractAddr);
+		this._address = contractAddr;
+
+		this._contractInst = new this._web3.eth.Contract(ERC20Abi, this._address);
+	}
+
+	/**
+	 * Get contract address
+	 *
+	 * @return {string}
+	 */
+	getAddress() {
+		return this._address;
+	}
+
+	/**
+	 * Get contract instance
+	 *
+	 * @return {Contract}
+	 */
+	getInstance() {
+		return this._contractInst;
+	}
+
+	/**
+	 * Get Web3 instance
+	 *
+	 * @return {Web3}
+	 */
+	getWeb3() {
+		return this._web3;
 	}
 
 	/**
