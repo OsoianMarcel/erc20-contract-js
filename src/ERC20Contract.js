@@ -46,7 +46,6 @@ class ERC20Contract {
 
 	/**
 	 * Get total amount of tokens
-	 * .call()
 	 *
 	 * @return {TransactionObject} Total supply
 	 */
