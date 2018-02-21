@@ -4,7 +4,7 @@ Simple JS library used to manipulate with ERC-20 token contracts
 ## Example
 ```js
 const Web3 = require('web3');
-const ERC20Contract = require('../ERC20Contract');
+const ERC20Contract = require('erc20-contract-js');
 
 // Web3 instance
 const web3 = new Web3(
