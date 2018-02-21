@@ -66,7 +66,7 @@ class ERC20Contract {
 	 * @return {TransactionObject} Whether the transfer was successful or not
 	 */
 	transferFrom(fromAddr, toAddr, value) {
-		return this._contractInst.methods['transfer'](fromAddr, toAddr, value);
+		return this._contractInst.methods['transferFrom'](fromAddr, toAddr, value);
 	}
 
 	/**
