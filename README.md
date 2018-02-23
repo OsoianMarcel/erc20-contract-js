@@ -2,7 +2,20 @@
 Simple JS library used to manipulate with ERC-20 token contracts
 
 [![Build Status](https://travis-ci.org/OsoianMarcel/erc20-contract-js.svg?branch=master)](https://travis-ci.org/OsoianMarcel/erc20-contract-js)
+[![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/erc20-contract-js)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
+
+## Install
+
+### Yarn
+```
+yarn add erc20-contract-js
+```
+
+### NPM
+```
+npm install erc20-contract-js
+```
 
 ## Example
 ```js
@@ -31,6 +44,16 @@ erc20Contract.totalSupply().call()
 // Get allowance
 erc20Contract.allowance(walletAddr, walletAddr).call()
 	.then(allowance => console.log(`Allowance: ${allowance}`));
+```
+
+## Testing
+
+```bash
+$ yarn test
+```
+
+```bash
+$ npm test
 ```
 
 ## Contribute
