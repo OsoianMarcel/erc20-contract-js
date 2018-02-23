@@ -1,6 +1,6 @@
 {
  "name": "erc20-contract-js",
- "version": "1.0.3",
+ "version": "1.1.0",
  "description": "Simple JS library used to manipulate with ERC-20 token contracts",
  "keywords": [
   "ethereum",
