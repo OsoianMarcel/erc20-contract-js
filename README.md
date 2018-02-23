@@ -1,6 +1,9 @@
 # erc20-contract-js
 Simple JS library used to manipulate with ERC-20 token contracts
 
+[![Build Status](https://travis-ci.org/OsoianMarcel/erc20-contract-js.svg?branch=master)](https://travis-ci.org/OsoianMarcel/erc20-contract-js)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
+
 ## Example
 ```js
 const Web3 = require('web3');
@@ -29,3 +32,24 @@ erc20Contract.totalSupply().call()
 erc20Contract.allowance(walletAddr, walletAddr).call()
 	.then(allowance => console.log(`Allowance: ${allowance}`));
 ```
+
+## Contribute
+
+Contributions to the package are always welcome!
+
+* Report any bugs or issues you find on the [issue tracker].
+* You can grab the source code at the package's [Git repository].
+
+## Donation
+
+```
+ETH: 0x58aaa089338901fcf5fb59342c97c17fa3dd1229
+```
+
+## License
+
+All contents of this package are licensed under the [MIT license].
+
+[issue tracker]: https://github.com/OsoianMarcel/erc20-contract-js/issues
+[Git repository]: https://github.com/OsoianMarcel/erc20-contract-js
+[MIT license]: LICENSE
