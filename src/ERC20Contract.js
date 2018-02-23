@@ -9,12 +9,15 @@ class ERC20Contract {
 	 *
 	 * @param {Web3} web3 Web3 instance
 	 * @param {string} contractAddr Contract address
+	 * @param {Array|null} [contractAbi=null] Contract ABI (optional)
 	 */
-	constructor(web3, contractAddr) {
+	constructor(web3, contractAddr, contractAbi = null) {
 		this._web3 = web3;
 		this._address = contractAddr;
 
-		this._contractInst = new this._web3.eth.Contract(ERC20Abi, this._address);
+		const abi = contractAbi !== null ? contractAbi: ERC20Abi;
+
+		this._contractInst = new this._web3.eth.Contract(abi, this._address);
 	}
 
 	/**
@@ -47,6 +50,8 @@ class ERC20Contract {
 	/**
 	 * Get total amount of tokens
 	 *
+	 * function totalSupply() public constant returns (uint)
+	 *
 	 * @return {TransactionObject} Total supply
 	 */
 	totalSupply() {
@@ -55,6 +60,8 @@ class ERC20Contract {
 
 	/**
 	 * Get the token balance of account
+	 *
+	 * function balanceOf(address tokenOwner) public constant returns (uint balance)
 	 *
 	 * @param {string} walletAddr The address from which the balance will be retrieved
 	 * @return {TransactionObject} The balance
@@ -65,6 +72,8 @@ class ERC20Contract {
 
 	/**
 	 * Get amount of remaining tokens allowed to spent
+	 *
+	 * function allowance(address tokenOwner, address spender) public constant returns (uint remaining)
 	 *
 	 * @param {string} walletAddr The address of the account owning tokens
 	 * @param {string} spenderAddr The address of the account able to transfer the tokens
@@ -77,6 +86,8 @@ class ERC20Contract {
 	/**
 	 * Send "value" amount of tokens to address "toAddr"
 	 *
+	 * function transfer(address to, uint tokens) public returns (bool success)
+	 *
 	 * @param {string} toAddr The address of the recipient
 	 * @param {string} value The amount of token to be transferred
 	 * @return {TransactionObject} Whether the transfer was successful or not
@@ -87,6 +98,8 @@ class ERC20Contract {
 
 	/**
 	 * Send "value" amount of tokens from address "fromAddr" to address "toAddr"
+	 *
+	 * function transferFrom(address from, address to, uint tokens) public returns (bool success)
 	 *
 	 * @param {string} fromAddr The address of the sender
 	 * @param {string} toAddr The address of the recipient
@@ -100,6 +113,8 @@ class ERC20Contract {
 	/**
 	 * Allow "spenderAddr" to withdraw from your account, multiple times, up to the "value" amount
 	 *
+	 * function approve(address spender, uint tokens) public returns (bool success)
+	 *
 	 * @param {string} spenderAddr The address of the account able to transfer the tokens
 	 * @param {string} value The amount of wei to be approved for transfer
 	 * @return {TransactionObject} Whether the approval was successful or not
@@ -111,6 +126,8 @@ class ERC20Contract {
 	/**
 	 * Triggered when tokens are transferred
 	 *
+	 * event Transfer(address indexed from, address indexed to, uint tokens)
+	 *
 	 * @return {EventEmitter}
 	 */
 	onTransfer() {
@@ -120,10 +137,48 @@ class ERC20Contract {
 	/**
 	 * Triggered whenever approve is called
 	 *
+	 * event Approval(address indexed tokenOwner, address indexed spender, uint tokens)
+	 *
 	 * @return {EventEmitter}
 	 */
 	onApproval() {
 		return this._contractInst.events['Approval']();
+	}
+
+	/**
+	 * Get token decimals
+	 * Warning: This function is not part of ERC20 interface, so it may fail if contract does not has it
+	 *
+	 * uint8 public constant decimals
+	 *
+	 * @return {TransactionObject} Token decimals
+	 */
+	decimals() {
+		return this._contractInst.methods['decimals']();
+	}
+
+	/**
+	 * Get token symbol
+	 * Warning: This function is not part of ERC20 interface, so it may fail if contract does not has it
+	 *
+	 * string public constant symbol
+	 *
+	 * @return {TransactionObject} Token symbol
+	 */
+	symbol() {
+		return this._contractInst.methods['symbol']();
+	}
+
+	/**
+	 * Get token name
+	 * Warning: This function is not part of ERC20 interface, so it may fail if contract does not has it
+	 *
+	 * string public constant name
+	 *
+	 * @return {TransactionObject} Token name
+	 */
+	name() {
+		return this._contractInst.methods['name']();
 	}
 }
 
