@@ -11,13 +11,13 @@ describe('Mutable functions (check exceptions)', function () {
 
 	const testAmount = '1000000000000000000';
 
-	before(function() {
+	before(function () {
 		contract = new ERC20Contract(helper.web3, helper.contractAddr);
 	});
 
 	describe('#transfer()', function () {
 		it('should not throw exception', function () {
-			(function() {
+			(function () {
 				contract.transfer(helper.walletAddr, testAmount);
 			}).should.to.not.throw();
 		});
@@ -25,7 +25,7 @@ describe('Mutable functions (check exceptions)', function () {
 
 	describe('#transferFrom()', function () {
 		it('should not throw exception', function () {
-			(function() {
+			(function () {
 				contract.transferFrom(helper.walletAddr, helper.walletAddr, testAmount);
 			}).should.to.not.throw();
 		});
@@ -33,7 +33,7 @@ describe('Mutable functions (check exceptions)', function () {
 
 	describe('#approve()', function () {
 		it('should not throw exception', function () {
-			(function() {
+			(function () {
 				contract.approve(helper.walletAddr, testAmount);
 			}).should.to.not.throw();
 		});

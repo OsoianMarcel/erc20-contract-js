@@ -7,7 +7,7 @@ chai.should();
 describe('Getters', function () {
 	let contract;
 
-	before(function() {
+	before(function () {
 		contract = new ERC20Contract(helper.web3, helper.contractAddr);
 	});
 

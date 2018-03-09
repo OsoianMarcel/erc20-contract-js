@@ -15,7 +15,7 @@ class ERC20Contract {
 		this._web3 = web3;
 		this._address = contractAddr;
 
-		const abi = contractAbi !== null ? contractAbi: ERC20Abi;
+		const abi = contractAbi !== null ? contractAbi : ERC20Abi;
 
 		this._contractInst = new this._web3.eth.Contract(abi, this._address);
 	}
@@ -128,10 +128,11 @@ class ERC20Contract {
 	 *
 	 * event Transfer(address indexed from, address indexed to, uint tokens)
 	 *
+	 * @param {Object} [options] The options used for deployment
 	 * @return {EventEmitter}
 	 */
-	onTransfer() {
-		return this._contractInst.events['Transfer']();
+	onTransfer(options) {
+		return this._contractInst.events['Transfer'](options);
 	}
 
 	/**
@@ -139,10 +140,31 @@ class ERC20Contract {
 	 *
 	 * event Approval(address indexed tokenOwner, address indexed spender, uint tokens)
 	 *
+	 * @param {Object} [options] The options used for deployment
 	 * @return {EventEmitter}
 	 */
-	onApproval() {
-		return this._contractInst.events['Approval']();
+	onApproval(options) {
+		return this._contractInst.events['Approval'](options);
+	}
+
+	/**
+	 * Get past transfer events
+	 *
+	 * @param {Object} [options] The options used for deployment
+	 * @return {Promise<EventLog[]>}
+	 */
+	peTransfer(options) {
+		return this._contractInst.getPastEvents('Transfer', options);
+	}
+
+	/**
+	 * Get past approval events
+	 *
+	 * @param {Object} [options] The options used for deployment
+	 * @return {Promise<EventLog[]>}
+	 */
+	peApproval(options) {
+		return this._contractInst.getPastEvents('Approval', options);
 	}
 
 	/**

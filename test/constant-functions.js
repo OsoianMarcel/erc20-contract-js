@@ -11,7 +11,7 @@ describe('Constant functions', function () {
 
 	const totalSupply = '1000000000000000000000000';
 
-	before(function() {
+	before(function () {
 		contract = new ERC20Contract(helper.web3, helper.contractAddr);
 	});
 
