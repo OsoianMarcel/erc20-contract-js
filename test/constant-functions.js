@@ -23,7 +23,7 @@ describe('Constant functions', function () {
 
 	describe('#balanceOf()', function () {
 		it('should return 0 (zero) balance', function () {
-			contract.balanceOf('0x0').call().should.eventually.equal('0');
+			contract.balanceOf('0x0000000000000000000000000000000000000000').call().should.eventually.equal('0');
 		});
 
 		it('should return balance of wallet', function () {
@@ -33,7 +33,8 @@ describe('Constant functions', function () {
 
 	describe('#allowance()', function () {
 		it('should return 0 (zero) allowance', function () {
-			contract.allowance('0x0', '0x0').call().should.eventually.equal('0');
+			contract.allowance('0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000')
+				.call().should.eventually.equal('0');
 		});
 
 		it('should return expected allowance', function () {
