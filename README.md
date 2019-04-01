@@ -64,10 +64,7 @@ Contributions to the package are always welcome!
 * You can grab the source code at the package's [Git repository].
 
 ## Donation
-
-```
-ETH: 0x58aaa089338901fcf5fb59342c97c17fa3dd1229
-```
+Give me a Star if you like it!
 
 ## License
 
