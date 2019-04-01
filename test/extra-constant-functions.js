@@ -15,19 +15,19 @@ describe('Extra constant functions', function () {
 
 	describe('#decimals()', function () {
 		it('should return token decimals', function () {
-			contract.decimals().call().should.eventually.equal('18');
+			return contract.decimals().call().should.eventually.equal(18);
 		});
 	});
 
 	describe('#symbol()', function () {
 		it('should return token symbol', function () {
-			contract.symbol().call().should.eventually.equal('OMD');
+			return contract.symbol().call().should.eventually.equal('OMD');
 		});
 	});
 
 	describe('#name()', function () {
 		it('should return token name', function () {
-			contract.name().call().should.eventually.equal('Osoian Marcel Dumitru Token');
+			return contract.name().call().should.eventually.equal('Osoian Marcel Dumitru Token');
 		});
 	});
 });

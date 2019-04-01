@@ -17,28 +17,34 @@ describe('Constant functions', function () {
 
 	describe('#totalSupply()', function () {
 		it('should return total amount of tokens', function () {
-			contract.totalSupply().call().should.eventually.equal(totalSupply);
+			return contract.totalSupply().call().then(v => v.toString())
+				.should.eventually.equal(totalSupply);
 		});
 	});
 
 	describe('#balanceOf()', function () {
 		it('should return 0 (zero) balance', function () {
-			contract.balanceOf('0x0000000000000000000000000000000000000000').call().should.eventually.equal('0');
+			return contract.balanceOf('0x0000000000000000000000000000000000000000').call().then(v => v.toString())
+				.should.eventually.equal('0');
 		});
 
 		it('should return balance of wallet', function () {
-			contract.balanceOf(helper.walletAddr).call().should.eventually.equal(totalSupply);
+			return contract.balanceOf(helper.walletAddr).call().then(v => v.toString())
+				.should.eventually.equal(totalSupply);
 		});
 	});
 
 	describe('#allowance()', function () {
 		it('should return 0 (zero) allowance', function () {
-			contract.allowance('0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000')
-				.call().should.eventually.equal('0');
+			return contract.allowance('0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000')
+				.call().then(v => v.toString())
+				.should.eventually.equal('0');
 		});
 
 		it('should return expected allowance', function () {
-			contract.allowance(helper.walletAddr, helper.walletAddr).call().should.eventually.equal('123456789000000000');
+			return contract.allowance(helper.walletAddr, helper.walletAddr).call()
+				.then(v => v.toString())
+				.should.eventually.equal('123456789000000000');
 		});
 	});
 });

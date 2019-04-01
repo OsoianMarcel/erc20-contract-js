@@ -24,8 +24,8 @@ describe('Getters', function () {
 	});
 
 	describe('#getInstance()', function () {
-		it('should return instance of web3.eth.Contract', function () {
-			contract.getInstance().should.be.an.instanceof(helper.web3.eth.Contract);
+		it('should return a contract instance', function () {
+			contract.getInstance().options.address.should.equal(helper.contractAddr);
 		});
 	});
 });
