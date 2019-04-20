@@ -12,6 +12,17 @@ class ERC20Contract {
 	 * @param {Array|null} [contractAbi=null] Contract ABI (optional)
 	 */
 	constructor(web3, contractAddr, contractAbi = null) {
+		if (typeof web3 !== 'object'
+			|| typeof web3.eth !== 'object'
+			|| typeof web3.eth.Contract !== 'function'
+		) {
+			throw new Error('First parameter should be a Web3 instance');
+		}
+
+		if (!/^0x[0-9a-f]{40}$/i.test(contractAddr)) {
+			throw new Error('Second parameter should be a valid Ethereum address');
+		}
+
 		this._web3 = web3;
 		this._address = contractAddr;
 
