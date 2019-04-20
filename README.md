@@ -7,14 +7,24 @@ Simple JS library used to manipulate with ERC-20 token contracts
 
 ## Install
 
-### Yarn
+### NodeJS
 ```
 yarn add erc20-contract-js
 ```
-
-### NPM
+or
 ```
 npm install erc20-contract-js
+```
+
+### Browser (from v1.3.0)
+```
+<!-- Unpkg CDN -->
+<script src="https://unpkg.com/erc20-contract-js"></script>
+```
+or
+```
+<!-- Install the library via NPM/Yarn, then request it locally -->
+<script src="/node_modules/dist/erc20-contract-js.min.js"></script>
 ```
 
 ## Example
@@ -51,7 +61,7 @@ erc20Contract.allowance(walletAddr, walletAddr).call()
 ```bash
 $ yarn test
 ```
-
+or
 ```bash
 $ npm test
 ```
