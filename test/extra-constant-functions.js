@@ -15,7 +15,7 @@ describe('Extra constant functions', function () {
 
 	describe('#decimals()', function () {
 		it('should return token decimals', function () {
-			return contract.decimals().call().should.eventually.equal(18);
+			return contract.decimals().call().should.eventually.equal('18');
 		});
 	});
 
