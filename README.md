@@ -1,7 +1,7 @@
 # erc20-contract-js
 Simple JS library used to manipulate with ERC-20 token contracts
 
-[![Build Status](https://travis-ci.org/OsoianMarcel/erc20-contract-js.svg?branch=master)](https://travis-ci.org/OsoianMarcel/erc20-contract-js)
+[![Build Status](https://app.travis-ci.com/OsoianMarcel/erc20-contract-js.svg?branch=master)](https://app.travis-ci.com/OsoianMarcel/erc20-contract-js)
 [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/erc20-contract-js)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/OsoianMarcel/erc20-contract-js/blob/master/LICENSE)
 
