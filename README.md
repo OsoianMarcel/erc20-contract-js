@@ -74,7 +74,7 @@ Contributions to the package are always welcome!
 * You can grab the source code at the package's [Git repository].
 
 ## Donation
-Give me a Star if you like it!
+Give me a Star if you like it. 😊
 
 ## License
 
