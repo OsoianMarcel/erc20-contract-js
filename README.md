@@ -16,11 +16,11 @@ or
 npm install erc20-contract-js
 ```
 
-### Browser (from v1.3.0)
-```
-<!-- Unpkg CDN -->
-<script src="https://unpkg.com/erc20-contract-js"></script>
-```
+	### Browser (from v1.3.0)
+	```
+	<!-- Unpkg CDN -->
+	<script src="https://unpkg.com/erc20-contract-js"></script>
+	```
 or
 ```
 <!-- Install the library via NPM/Yarn, then request it locally -->
@@ -33,9 +33,7 @@ const Web3 = require('web3');
 const ERC20Contract = require('erc20-contract-js');
 
 // Web3 instance
-const web3 = new Web3(
-	new Web3.providers.HttpProvider('https://mainnet.infura.io')
-);
+const web3 = new Web3('https://mainnet.infura.io');
 
 const walletAddr = '0x8d12a197cb00d4747a1fe03395095ce2a5cc6819', // EtherDelta contract address
 	contractAddr = '0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0'; // EOS contract address
